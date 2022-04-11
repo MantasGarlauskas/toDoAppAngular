@@ -1,0 +1,21 @@
+<div class="card mb-3">
+  <div
+    class="card-body"
+    [ngClass]="{
+      'bg-danger text-white': task.priority === 'Very important',
+      'bg-success': task.priority === 'Routine',
+      'bg-warning': task.priority === 'Important',
+      'bg-primary': task.priority === 'Not important'
+    }"
+  >
+    <h4>{{ task.name }}</h4>
+    <p>{{ task.priority }}</p>
+    <input
+      class="form-check-input"
+      type="checkbox"
+      value=""
+      id="flexCheckDefault"
+      (click)="deleteTask()"
+    />
+  </div>
+</div>

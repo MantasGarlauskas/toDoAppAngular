@@ -3,27 +3,14 @@
     <div class="card">
       <div class="card-header">Tasks</div>
       <div class="card-body">
-        <ul class="list-group">
-          <li
-            class="list-group-item"
+        <div class="row">
+          <app-task-item
             *ngFor="let task of tasks; let i = index"
-            [ngClass]="{
-              'bg-danger text-white': task.priority === 'Very important',
-              'bg-success': task.priority === 'Routine',
-              'bg-warning': task.priority === 'Important',
-              'bg-primary': task.priority === 'Not important'
-            }"
-          >
-            <input
-              class="form-check-input"
-              type="checkbox"
-              value=""
-              id="flexCheckDefault"
-              (click)="removeProduct(i)"
-            />
-            {{ task.name }} priority: {{ task.priority }}
-          </li>
-        </ul>
+            [task]="task"
+            (afterRemoveTask)="removeProduct($event)"
+            class="col-md-4"
+          ></app-task-item>
+        </div>
       </div>
     </div>
   </div>
