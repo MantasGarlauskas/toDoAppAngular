@@ -15,12 +15,4 @@ export class TaskComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  public addNewProducts(name: HTMLInputElement, priority: HTMLSelectElement) {
-    if (name.value != "" && priority.value != "") {
-      this.taskService.add(name.value, priority.value);
-      name.value = "";
-      priority.value = "";
-    }
-  }
 }

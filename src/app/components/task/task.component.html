@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="card">
       <div class="card-header">Tasks</div>
       <div class="card-body">
@@ -10,38 +10,6 @@
             class="col-md-4"
           ></app-task-item>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header">Add new task</div>
-      <div class="card-body">
-        <div class="mb-3">
-          <label for="" class="form-label">Name: </label>
-          <input type="text" class="form-control" #newName />
-        </div>
-        <div class="mb-3">
-          <label for="" class="form-label">Priority: </label>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            #select
-          >
-            <option selected>Open this select menu</option>
-            <option value="Very important">Very important</option>
-            <option value="Important">Important</option>
-            <option value="Not important">Not important</option>
-            <option value="Routine">Routine</option>
-          </select>
-        </div>
-        <button
-          class="btn btn-success"
-          (click)="addNewProducts(newName, select)"
-        >
-          Add
-        </button>
       </div>
     </div>
   </div>
