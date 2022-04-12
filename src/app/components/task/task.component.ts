@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {TasksService} from "src/app/services/tasks.service";
 import {TaskModel} from "../model/TaskModel";
 
 @Component({
@@ -8,33 +9,18 @@ import {TaskModel} from "../model/TaskModel";
 })
 export class TaskComponent implements OnInit {
   public tasks: TaskModel[] = [];
-  constructor() {
-    let data = localStorage.getItem("tasks");
-    if (data != null) {
-      this.tasks = JSON.parse(data);
-    }
+  constructor(private taskService: TasksService) {
+    taskService.load();
+    this.tasks = taskService.tasks;
   }
 
   ngOnInit(): void {}
 
-  private save() {
-    localStorage.setItem("tasks", JSON.stringify(this.tasks));
-  }
-
   public addNewProducts(name: HTMLInputElement, priority: HTMLSelectElement) {
     if (name.value != "" && priority.value != "") {
-      this.tasks.push({
-        name: name.value,
-        priority: priority.value,
-      });
+      this.taskService.add(name.value, priority.value);
       name.value = "";
       priority.value = "";
-      this.save();
     }
-  }
-
-  public removeProduct(i: number) {
-    this.tasks.splice(i, 1);
-    this.save();
   }
 }

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {TasksService} from "src/app/services/tasks.service";
 import {TaskModel} from "../../model/TaskModel";
 
 @Component({
@@ -9,11 +10,10 @@ import {TaskModel} from "../../model/TaskModel";
 export class TaskItemComponent implements OnInit {
   @Input() public task: TaskModel = {name: "", priority: ""};
   @Input() public index: number = 0;
-  @Output() public afterRemoveTask = new EventEmitter<number>();
-  constructor() {}
+  constructor(private taskService: TasksService) {}
 
   ngOnInit(): void {}
   public deleteTask() {
-    this.afterRemoveTask.emit(this.index);
+    this.taskService.delete(this.index);
   }
 }
