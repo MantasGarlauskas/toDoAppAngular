@@ -10,12 +10,6 @@
   >
     <h4>{{ task.name }}</h4>
     <p>{{ task.priority }}</p>
-    <input
-      class="form-check-input"
-      type="checkbox"
-      value=""
-      id="flexCheckDefault"
-      (click)="deleteTask()"
-    />
+    <button class="btn btn-danger" (click)="deleteTask()">Delete</button>
   </div>
 </div>
