@@ -7,6 +7,7 @@
           <app-task-item
             *ngFor="let task of tasks; let i = index"
             [task]="task"
+            [index]="i"
             class="col-md-4"
           ></app-task-item>
         </div>

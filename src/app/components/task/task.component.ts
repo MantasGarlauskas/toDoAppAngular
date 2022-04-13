@@ -10,7 +10,6 @@ import {TaskModel} from "../model/TaskModel";
 export class TaskComponent implements OnInit {
   public tasks: TaskModel[] = [];
   constructor(private taskService: TasksService) {
-    taskService.load();
     this.tasks = taskService.tasks;
   }
 

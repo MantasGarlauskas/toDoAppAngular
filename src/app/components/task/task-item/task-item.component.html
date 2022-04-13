@@ -11,5 +11,8 @@
     <h4>{{ task.name }}</h4>
     <p>{{ task.priority }}</p>
     <button class="btn btn-danger" (click)="deleteTask()">Delete</button>
+    <button class="btn btn-danger ms-3" [routerLink]="['/edit', index]">
+      Edit
+    </button>
   </div>
 </div>

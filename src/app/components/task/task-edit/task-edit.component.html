@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">Add new task</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label for="" class="form-label">Name: </label>
+          <input type="text" class="form-control" [(ngModel)]="name" />
+        </div>
+        <div class="mb-3">
+          <label for="" class="form-label">Priority: </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="priority"
+          >
+            <option selected>Open this select menu</option>
+            <option value="Very important">Very important</option>
+            <option value="Important">Important</option>
+            <option value="Not important">Not important</option>
+            <option value="Routine">Routine</option>
+          </select>
+        </div>
+        <button class="btn btn-success" (click)="update()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
